@@ -1,9 +1,23 @@
-# Required libraries for this entire project
+# Web Framework for building the API
+fastapi==0.110.0
 
-fastapi     # The main web framework + essential tools
-uvicorn
-sqlalchemy   # The ORM for database management
-pydantic
-python-jose    # For creating and verifying JWT tokens
-passlib[bcrypt]   # For secure password hashing
-python-dotenv     # Required if you ever decide to use form-data for login
+# ASGI server to run the FastAPI application
+uvicorn==0.29.0
+
+# Database toolkit and ORM for SQL interactions
+sqlalchemy==2.0.29
+
+# Data validation and settings management using Python type annotations
+pydantic==2.6.4
+
+# Library for creating and verifying JSON Web Tokens (JWT)
+python-jose==3.3.0
+
+# Password hashing library for secure user authentication
+passlib[bcrypt]==1.7.4
+
+# Hashing algorithm support required by Passlib
+bcrypt==3.2.2
+
+# Loads environment variables from a .env file (used for DB URLs and Secrets)
+python-dotenv==1.0.1
