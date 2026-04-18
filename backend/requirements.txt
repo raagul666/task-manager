@@ -1,9 +1,9 @@
 # Required libraries for this entire project
 
-fastapi==0.104.1 # The main web framework + essential tools
+fastapi==0.104.1     # The main web framework + essential tools
 uvicorn==0.24.0
-sqlalchemy==2.0.23 # The ORM for database management
+sqlalchemy==2.0.23   # The ORM for database management
 pydantic==2.5.2
-python-jose==3.3.0# For creating and verifying JWT tokens
-passlib[bcrypt]==1.7.4 # For secure password hashing
-python-dotenv==1.0.0 # Required if you ever decide to use form-data for login
+python-jose==3.3.0    # For creating and verifying JWT tokens
+passlib[bcrypt]==1.7.4   # For secure password hashing
+python-dotenv==1.0.0     # Required if you ever decide to use form-data for login
