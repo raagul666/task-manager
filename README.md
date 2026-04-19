@@ -49,6 +49,7 @@
 
 ```text
 task-manager/
+├── assets/
 ├── backend/
 │   ├── app/
 │   │   ├── core/          # Auth logic and app configuration
@@ -56,41 +57,41 @@ task-manager/
 │   │   ├── models/        # SQLAlchemy database models
 │   │   ├── routes/        # API endpoints (Auth, Tasks)
 │   │   ├── schemas/       # Pydantic data validation models
-│   │   └── main.py        # App entry point
+│   │   ├── main.py        # App entry point
+|   |   └──.env            # Environment secrets
 │   ├── requirements.txt   # Backend dependencies
 │   ├── test_main.py       # API testing suite
 │   └── test.db            # SQLite database file
-├── frontend/              # Legacy Vanilla JS frontend
-│   └── index.html
-├── frontend-react/        # Modern React frontend
+├── frontend-react/        # React frontend
 │   ├── src/
 │   └── package.json
-├── .env                   # Environment secrets
+|
 ├── Dockerfile             # Container configuration
 └── README.md
 ```
 
 ---
 ## Environment Variables
-Create a .env file in the backend folder(not committed):
+Create a `.env` file in the **backend** folder (Not Committed).
 
-- #### Database (SQLite for local development)
-DATABASE_URL=your_database_url 
+```env
+# Database (SQLite for local development)
+DATABASE_URL=sqlite:///./test.db
 
-- #### Security Config and The Algorithm used to sign the JWT tokens
+# Security Config & JWT Algorithm
 SECRET_KEY=your_secret_key_here
+ALGORITHM=HS256
 
-ALGORITHM=algorithm_jwt_tokens
-
-- #### How long the user stays logged in before needing to re-login (in minutes)
-ACCESS_TOKEN_EXPIRE_MINUTES=token_expire_time
+# User session duration (in minutes)
+ACCESS_TOKEN_EXPIRE_MINUTES=60
+```
 
 ---
 ## How to Run Locally
 
 ### 1. Clone repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/task-manager.git
+git clone https://github.com/raagul666/task-manager.git
 cd task-manager
 ```
 
@@ -100,8 +101,8 @@ cd backend
 pip install -r requirements.txt
 python -m uvicorn app.main:app --reload
 ```
-- API URL: http://127.0.0.1:8000
-- Interactive Docs: http://127.0.0.1:8000/docs
+- API URL: [http://127.0.0.1:8000]
+- Interactive Docs: [http://127.0.0.1:8000/docs]
 
 ### Frontend Setup
 ```bash
@@ -109,7 +110,7 @@ cd frontend-react
 npm install
 npm start
 ```
-- App URL: http://localhost:3000
+- App URL: [http://localhost:3000]
 
 ---
 ### Docker Setup
@@ -123,10 +124,10 @@ docker run -p 8000:8000 task-manager
 ---
 ### Live Deployment
 
-- Backend(Deployed on Render): https://task-manager-backend-1cwg.onrender.com/
-- Frontend(Deployed on Vercel): https://task-manager-chi-lyart.vercel.app/
-- API Docs: https://task-manager-backend-1cwg.onrender.com/docs
-- Live Demo: https://task-manager-chi-lyart.vercel.app/
+- Backend(Deployed on Render): [https://task-manager-backend-1cwg.onrender.com/]
+- Frontend(Deployed on Vercel): [https://task-manager-chi-lyart.vercel.app/]
+- API Docs: [https://task-manager-backend-1cwg.onrender.com/docs]
+- Live Demo: [https://task-manager-chi-lyart.vercel.app/]
 
 ---
 ##  Notes
