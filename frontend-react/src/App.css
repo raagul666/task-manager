@@ -176,7 +176,7 @@ body {
   border-color: rgba(255, 255, 255, 0.05);
   color: #666;
   cursor: not-allowed;
-  transform: none !important; /* Prevents the hover lift effect */
+  transform: none !important;
   box-shadow: none !important;
 }
 .pagination button:disabled { opacity: 0.3; cursor: not-allowed; }
@@ -184,7 +184,7 @@ body {
 
 form {
   width: 100%;
-  display: contents; /* This makes the form act like it's not there for layout purposes */
+  display: contents; 
 }
 
 /* Ensure the task-input keeps its flex layout even inside a form */
