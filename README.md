@@ -1,11 +1,18 @@
 # Task Manager Web Application
 
+### Login Page
+![Login](./assets/login.png)
+
+### Dashboard
+![Dashboard](./assets/dashboard_1.png)
+
+![Dashboard](./assets/dashboard_2.png)
+
+---
 ## Project Overview
--This is a simple full-stack Task Manager application built using FastAPI and React.
-
--It allows users to register, login, and manage their personal tasks securely using JWT authentication.
-
--The goal of this project is to demonstrate backend API development, authentication, database integration, and frontend interaction in a clean and simple way.
+- This is a simple full-stack Task Manager application built using FastAPI and React.
+- It allows users to register, login, and manage their personal tasks securely using JWT authentication.
+- The goal of this project is to demonstrate backend API development, authentication, database integration, and frontend interaction in a clean and simple way.
 
 ---
 ##  Features
@@ -25,7 +32,7 @@
 - User-specific tasks (no access to others)
 
 ### Additional Features
-- Task filtering (`completed / pending`)
+- Task filtering (`completed / pending / all`)
 - Pagination
 - Responsive UI
 
@@ -40,6 +47,7 @@
 ---
 ##  Project Structure
 
+```text
 task-manager/
 ├── backend/
 │   ├── app/
@@ -60,56 +68,75 @@ task-manager/
 ├── .env                   # Environment secrets
 ├── Dockerfile             # Container configuration
 └── README.md
+```
 
 ---
 ## Environment Variables
-Create a .env file in the root or backend folder:
+Create a .env file in the backend folder(not committed):
 
-### For local SQLite development
-DATABASE_URL=your_database_url
+- #### Database (SQLite for local development)
+DATABASE_URL=your_database_url 
 
-### SECURITY CONFIG: Change this to a long random string for production
+- #### Security Config and The Algorithm used to sign the JWT tokens
 SECRET_KEY=your_secret_key_here
 
-### The algorithm used to sign the JWT tokens
 ALGORITHM=algorithm_jwt_tokens
 
-### How long the user stays logged in before needing to re-login (in minutes)
+- #### How long the user stays logged in before needing to re-login (in minutes)
 ACCESS_TOKEN_EXPIRE_MINUTES=token_expire_time
 
 ---
 ## How to Run Locally
 
+### 1. Clone repository
+```bash
+git clone https://github.com/YOUR_USERNAME/task-manager.git
+cd task-manager
+```
+
 ### Backend Setup
+```bash
 cd backend
 pip install -r requirements.txt
 python -m uvicorn app.main:app --reload
-API URL: http://127.0.0.1:8000
-Interactive Docs: http://127.0.0.1:8000/docs
+```
+- API URL: http://127.0.0.1:8000
+- Interactive Docs: http://127.0.0.1:8000/docs
 
 ### Frontend Setup
+```bash
 cd frontend-react
 npm install
 npm start
-App URL: http://localhost:3000
+```
+- App URL: http://localhost:3000
 
 ---
 ### Docker Setup
-Run the backend in a isolated container:
+
+- Run the backend in a isolated container:
+```bash
 docker build -t task-manager .
 docker run -p 8000:8000 task-manager
+``` 
 
 ---
-### Deployment
-Backend: Deployed on Render
-Frontend: Deployed on Vercel
-Live Demo: [INSERT_YOUR_LINK_HERE]
+### Live Deployment
+
+- Backend(Deployed on Render): https://task-manager-backend-1cwg.onrender.com/
+- Frontend(Deployed on Vercel): https://task-manager-chi-lyart.vercel.app/
+- API Docs: https://task-manager-backend-1cwg.onrender.com/docs
+- Live Demo: https://task-manager-chi-lyart.vercel.app/
 
 ---
 ##  Notes
-Secrets are stored using environment variables
-Each user can access only their own tasks
-Designed to be simple and functional
+
+- Deployed backend and frontend
+- Secrets are stored using environment variables
+- Each user can access only their own tasks
+- Proper HTTP status codes are used
+- Designed to be simple and functional
 
 BY
-Raagul N
+- Raagul N
+- [nraagul@gmail.com]
